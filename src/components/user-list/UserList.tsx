@@ -8,7 +8,8 @@ import UserItem from "./UserItem";
 const UserList: FC = observer(() => {
   const users = UserStore.users;
   return (
-    <section>
+    <div>
+      <h1>Список пользователей</h1>
       <ul className={styles.list}>
         {users.map((user) => {
           return (
@@ -18,7 +19,7 @@ const UserList: FC = observer(() => {
           );
         })}
       </ul>
-    </section>
+    </div>
   );
 });
 

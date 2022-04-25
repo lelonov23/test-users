@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./App.scss";
+import styles from "./App.module.scss";
 import UserStore from "./store/Store";
 import PulseLoader from "react-spinners/PulseLoader";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import UserListView from "./components/views/UserListView";
+import UserProfileView from "./components/views/UserProfileView";
+import SorterPanel from "./components/SorterPanel";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,17 +28,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       {!isLoaded && (
-        <div className="spinner">
+        <div className={styles.spinner}>
           <PulseLoader size={30} />
         </div>
       )}
       {isLoaded && (
-        <Routes>
-          <Route path="/" element={<Navigate to="/users" />} />
-          <Route path="/users" element={<UserListView />} />
-        </Routes>
+        <div className={styles.mainView}>
+          <SorterPanel />
+          <Routes>
+            <Route path="/" element={<Navigate to="/users" />} />
+            <Route path="/users" element={<UserListView />} />
+            <Route path="/users/:id" element={<UserProfileView />} />
+          </Routes>
+        </div>
       )}
     </div>
   );
