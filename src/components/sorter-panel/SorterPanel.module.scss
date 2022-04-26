@@ -1,0 +1,21 @@
+@use "/src/scss/mixins";
+@use "/src/scss/colors" as *;
+
+.panel {
+  height: 100vh;
+  background-color: $sort-panel;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+.panel > * {
+  margin-bottom: 1rem;
+  font-size: 24px;
+}
+
+.panel button {
+  @include mixins.button;
+  background-color: $purple;
+}

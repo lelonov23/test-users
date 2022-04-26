@@ -8,7 +8,7 @@ import UserItem from "./UserItem";
 const UserList: FC = observer(() => {
   const users = UserStore.users;
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Список пользователей</h1>
       <ul className={styles.list}>
         {users.map((user) => {
