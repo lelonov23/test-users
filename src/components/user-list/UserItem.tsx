@@ -12,9 +12,18 @@ interface UserItemProps {
 const UserItem: FC<UserItemProps> = observer(({ user }) => {
   return (
     <div className={styles.userItem}>
-      <p>{user.name}</p>
-      <p>{user.address.city}</p>
-      <p>{user.company.name}</p>
+      <p>
+        <span>ФИО: </span>
+        {user.name}
+      </p>
+      <p>
+        <span>город: </span>
+        {user.address.city}
+      </p>
+      <p>
+        <span>компания: </span>
+        {user.company.name}
+      </p>
       <Link to={`${user.id}`}>Подробнее</Link>
     </div>
   );

@@ -34,6 +34,7 @@ export class UserStoreImpl {
       userList: observable,
       initList: action,
       editUser: action,
+      getSortedUsers: action,
       users: computed,
     });
   }
@@ -62,11 +63,13 @@ export class UserStoreImpl {
     });
   }
 
+  getSortedUsers(sorter: (x: User, y: User) => number): User[] {
+    return this.userList.sort(sorter);
+  }
+
   get users() {
     return this.userList;
   }
-
-  // get sortedBy...
 }
 
 const UserStore = new UserStoreImpl();

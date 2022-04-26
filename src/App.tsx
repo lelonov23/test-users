@@ -6,7 +6,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { Routes, Route, Navigate } from "react-router-dom";
 import UserListView from "./components/views/UserListView";
 import UserProfileView from "./components/views/UserProfileView";
-import SorterPanel from "./components/SorterPanel";
+import SorterPanel from "./components/sorter-panel/SorterPanel";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
